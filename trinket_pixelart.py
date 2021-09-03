@@ -1,6 +1,13 @@
 # "_" = white, "B" = blue, "R" = red
 # jeder der möchte kann das programm noch ausbauen
 
+colors = {
+    "B": "cornflowerblue",
+    "R": "red",
+    "G": "green",
+    "_": "white"
+}
+
 pixelart = [["_","_","_","_","_","_","_","_","_","_"],
             ["_","_","_","_","_","_","_","_","_","_"],
             ["_","_","_","R","_","_","R","_","_","_"],
@@ -22,11 +29,8 @@ for i in range(len(pixelart)):
         print(f'RECHTECK("r{counter}")')
         print(f"r{counter}.verschiebeNach({j*LE}, {i*LE})")
         print(f"r{counter}.setzeHoehe({LE})\nr{counter}.setzeBreite({LE})")
-        if pixelart[i][j] == "_":
-            print(f'r{counter}.fuellen("white")')
-        elif pixelart[i][j] == "B":
-            print(f'r{counter}.fuellen("blue")')
-        elif pixelart[i][j] == "R":
-            print(f'r{counter}.fuellen("red")')
+        
+        if pixelart[i][j] in colors:
+            print(f'r{counter}.fuellen("{colors[pixelart[i][j]]}")')
         else:
             print(f'r{counter}.fuellen("black")')
